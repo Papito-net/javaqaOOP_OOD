@@ -2,16 +2,11 @@ package ru.netology.javaqaOOP_OOD;
 
 public class Radio {
 
-    public int currentRadioStation;
-
+    private int currentRadioStation;
+    private int currentVolume = 0;
+    
     public int getCurrentRadioStation() {
         return currentRadioStation;
-    }
-
-    public int currentVolume = 0;
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     // Установка номера радиостанции в диапазоне от 0 до 9
@@ -22,6 +17,21 @@ public class Radio {
             this.currentRadioStation = 0;
         } else {
             this.currentRadioStation = newRadioStation;
+        }
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    // Метод установки громкости, игнорируя выход за диапазон значений от 0 до 100
+    public void setCurrentVolume(int newVolume) {
+        if (newVolume > 100) {
+            this.currentVolume = 100;
+        } else if (newVolume < 0) {
+            this.currentVolume = 0;
+        } else {
+            this.currentVolume = newVolume;
         }
     }
 
@@ -40,18 +50,6 @@ public class Radio {
             currentRadioStation++; // Увеличиваем на 1
         } else {
             currentRadioStation = 0; // Переход на 0
-        }
-    }
-
-
-    // Метод установки громкости, игнорируя выход за диапазон значений от 0 до 100
-    public void setCurrentVolume(int newVolume) {
-        if (newVolume > 100) {
-            this.currentVolume = 100;
-        } else if (newVolume < 0) {
-            this.currentVolume = 0;
-        } else {
-            this.currentVolume = newVolume;
         }
     }
 
