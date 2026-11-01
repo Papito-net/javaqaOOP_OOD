@@ -1,15 +1,15 @@
 package ru.netology.javaqaOOP_OOD;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Getter
 public class Radio {
 
-    private int radioStationsCount;
+    private int radioStationsCount = 10;
     private int currentRadioStation;
     private int currentVolume = 0;
-
-    // 1. Конструктор без параметров для установки значения радиостанций по-умолчанию - 10
-    public Radio() {
-        this.radioStationsCount = 10;
-    }
 
     // Конструктор с одним параметром для установки желаемого количества радиостанций
     public Radio(int radioStationsCount) {
@@ -18,10 +18,6 @@ public class Radio {
         } else {
             this.radioStationsCount = 10; // Если указали 0 или минус, то ставим 10
         }
-    }
-
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
     }
 
     // Установка номера радиостанции в диапазоне от 0 до 9
@@ -33,10 +29,6 @@ public class Radio {
             return;
         }
         this.currentRadioStation = newRadioStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     // Метод установки громкости, контролируя выход за диапазон значений от 0 до 100
